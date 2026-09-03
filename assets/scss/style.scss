@@ -296,7 +296,11 @@ img { max-width: 100%; }
 .hero-ctas .btn, .hero-ctas .btn-primary-custom, .hero-ctas .btn-ghost, .cta-row .btn, .cta-row .btn-primary-custom, .project-actions .btn-project, .pdf-toolbar .btn {
   flex: 0 0 auto !important; flex-shrink: 0 !important; white-space: nowrap !important;
 }
-.navbar-sticky .container { flex-wrap: nowrap !important; }
+.navbar-sticky .container { flex-wrap: wrap !important; }
+.navbar-collapse { flex-basis: 100% !important; flex-grow: 1 !important; }
+@media (max-width: 767.98px) {
+  .navbar-sticky .nav-link.btn-accent { margin-left: 0 !important; margin-top: 0.5rem !important; }
+}
 .navbar-brand, .nav-item, .navbar-sticky .nav-link {
   white-space: nowrap !important; word-break: keep-all !important; overflow-wrap: normal !important; flex-shrink: 0 !important;
 }
