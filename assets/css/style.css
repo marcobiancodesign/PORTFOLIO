@@ -245,3 +245,15 @@ img{max-width:100%}
   .btn, .btn-primary-custom, .btn-ghost, .btn-project, .btn-submit, .btn-accent, .navbar-sticky .nav-link.btn-accent { font-size:.66rem !important; }
   .navbar-brand { font-size:1.05rem !important; }
 }
+/* Fix pillole: lo squircle appiattiva le estremità — si forzano angoli tondi sui bottoni */
+.btn, .btn-primary-custom, .btn-ghost, .btn-project, .btn-submit, .btn-accent, .navbar-sticky .nav-link.btn-accent, .badge-pdf {
+  border-radius:999px !important;
+  corner-shape:round !important;
+  corner-smoothing:0% !important;
+  -webkit-corner-shape:round !important;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon, .info-item .icon, .cv-avatar, .timeline-item::before {
+  corner-shape:round !important;
+  corner-smoothing:0% !important;
+  -webkit-corner-shape:round !important;
+}
