@@ -7,6 +7,6 @@ Struttura
 - `portfolio/` — Pagine lavori con viewer PDF
 - `assets/scss/` — Sorgente Sass
 - `assets/css/` — CSS
-- `assets/pdf/` — PDF lavori e CV
+- `assets/pdf/` — PDF lavori
 - `assets/img/` — Immagini
 
