@@ -208,7 +208,7 @@ img { max-width: 100%; }
 #portfolio .carousel-control-prev:hover .carousel-control-prev-icon, #portfolio .carousel-control-next:hover .carousel-control-next-icon { background-color: #10B981; border-color: #10B981; transform: scale(1.12); filter: drop-shadow(0 4px 16px rgba(16,185,129,0.45)); }
 @media(max-width:992px){#portfolio .carousel-control-prev,.portfolio-section .carousel-control-prev{left:1.6rem} #portfolio .carousel-control-next,.portfolio-section .carousel-control-next{right:1.6rem}}
 #portfolio .carousel-indicators, .portfolio-section .carousel-indicators { z-index: 4; }
-#portfolio .carousel-indicators [data-bs-target], .portfolio-section .carousel-indicators [data-bs-target] { background-color: #fff; opacity: 0.85; width: 28px; height: 4px; border-radius: 999px; border: none; box-shadow: 0 1px 6px rgba(0,0,0,0.45); }
+#portfolio .carousel-indicators label, .portfolio-section .carousel-indicators label { background-color: #fff; opacity: 0.85; width: 28px; height: 4px; border-radius: 999px; border: none; box-shadow: 0 1px 6px rgba(0,0,0,0.45); }
 #portfolio .carousel-indicators .active, .portfolio-section .carousel-indicators .active { background-color: $accent; opacity: 1; }
 #portfolio .carousel::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 90px; background: linear-gradient(to top, rgba(0,0,0,0.38) 0%, transparent 100%); pointer-events: none; z-index: 3; }
 .cv-layout {
@@ -297,7 +297,6 @@ img { max-width: 100%; }
   flex: 0 0 auto !important; flex-shrink: 0 !important; white-space: nowrap !important;
 }
 .navbar-sticky .container { flex-wrap: wrap !important; }
-.navbar-collapse { flex-basis: 100% !important; flex-grow: 1 !important; }
 @media (max-width: 767.98px) {
   .navbar-sticky .nav-link.btn-accent { margin-left: 0 !important; margin-top: 0.5rem !important; }
 }
@@ -335,4 +334,38 @@ img { max-width: 100%; }
   corner-shape: round !important;
   corner-smoothing: 0% !important;
   -webkit-corner-shape: round !important;
+}
+/* Menu mobile CSS-only (checkbox hack) — nessun JavaScript */
+.nav-toggle { position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; }
+.navbar-toggler { cursor: pointer; display: inline-block; }
+@media (max-width: 767.98px) {
+  .navbar-sticky .navbar-collapse { display: none !important; }
+  .nav-toggle:checked ~ .navbar-collapse { display: block !important; }
+}
+/* Slider portfolio CSS-only (radio) — nessun JavaScript */
+.css-carousel { position: relative; }
+.css-carousel > input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+.css-carousel .carousel-item { display: none; }
+#slide-1:checked ~ .carousel-inner .slide-1,
+#slide-2:checked ~ .carousel-inner .slide-2,
+#slide-3:checked ~ .carousel-inner .slide-3 { display: block; }
+.css-carousel .carousel-control-prev,
+.css-carousel .carousel-control-next { display: none !important; cursor: pointer; }
+#slide-1:checked ~ .ctrl-1,
+#slide-2:checked ~ .ctrl-2,
+#slide-3:checked ~ .ctrl-3 { display: flex !important; }
+#slide-1:checked ~ .carousel-indicators label[for="slide-1"],
+#slide-2:checked ~ .carousel-indicators label[for="slide-2"],
+#slide-3:checked ~ .carousel-indicators label[for="slide-3"] { background-color: #10B981; opacity: 1; width: 36px; box-shadow: 0 2px 10px rgba(16,185,129,0.5); }
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .navbar-sticky .nav-link { padding: 0.5rem 0.65rem !important; }
+  .navbar-nav { gap: 0.5rem !important; }
+  .navbar-sticky .nav-link.btn-accent { padding: 0.5rem 1rem !important; margin-left: 0.25rem !important; }
+}
+/* Fascia stretta con menu esteso (576-768px): spaziature extra-ridotte per restare in una riga */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .navbar-brand { font-size: 1.05rem !important; }
+  .navbar-sticky .nav-link { padding: 0.5rem 0.5rem !important; font-size: 0.78rem !important; }
+  .navbar-nav { gap: 0.35rem !important; }
+  .navbar-sticky .nav-link.btn-accent { padding: 0.45rem 0.8rem !important; margin-left: 0 !important; }
 }
