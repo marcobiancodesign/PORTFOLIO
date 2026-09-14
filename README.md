@@ -1,4 +1,4 @@
-Portfolio UX/UI Designer di Marco Bianco — progetto corso Start2impact.
+Portfolio di Marco Bianco — Start2impact.
 
 Struttura
 - `index.html` — Home
