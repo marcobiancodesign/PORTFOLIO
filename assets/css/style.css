@@ -121,8 +121,8 @@ img{max-width:100%}
 @media(max-width:992px){#portfolio .carousel-control-prev,.portfolio-section .carousel-control-prev{left:1.6rem} #portfolio .carousel-control-next,.portfolio-section .carousel-control-next{right:1.6rem}}
 #portfolio .carousel-control-prev:active .carousel-control-prev-icon,#portfolio .carousel-control-next:active .carousel-control-next-icon{transform:scale(0.96)}
 #portfolio .carousel-indicators,.portfolio-section .carousel-indicators{z-index:4;gap:8px}
-#portfolio .carousel-indicators [data-bs-target],.portfolio-section .carousel-indicators [data-bs-target]{background-color:rgba(255,255,255,0.9);opacity:0.7;width:28px;height:4px;border-radius:999px;border:none;box-shadow:0 1px 6px rgba(0,0,0,0.35);transition:all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);corner-shape:squircle;corner-smoothing:60%}
-#portfolio .carousel-indicators [data-bs-target]:hover,.portfolio-section .carousel-indicators [data-bs-target]:hover{background-color:#10B981;opacity:1;width:36px;transform:scaleY(1.25)}
+#portfolio .carousel-indicators label,.portfolio-section .carousel-indicators label{background-color:rgba(255,255,255,0.9);opacity:0.7;width:28px;height:4px;border-radius:999px;border:none;box-shadow:0 1px 6px rgba(0,0,0,0.35);transition:all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);corner-shape:squircle;corner-smoothing:60%}
+#portfolio .carousel-indicators label:hover,.portfolio-section .carousel-indicators label:hover{background-color:#10B981;opacity:1;width:36px;transform:scaleY(1.25)}
 #portfolio .carousel-indicators .active,.portfolio-section .carousel-indicators .active{background-color:#10B981;opacity:1;width:36px;box-shadow:0 2px 10px rgba(16,185,129,0.5)}
 #portfolio .carousel::after{content:'';position:absolute;bottom:0;left:0;right:0;height:90px;background:linear-gradient(to top, rgba(0,0,0,0.38) 0%, transparent 100%);pointer-events:none;z-index:3}
 .project-number{font-size:.75rem;font-weight:700;letter-spacing:.12em;color:#10B981}
@@ -207,7 +207,7 @@ img{max-width:100%}
 .skill-icon, .form-control, .form-select, .alert, .info-item .icon, .cv-avatar, .btn-fullscreen, .carousel-control-prev-icon, .carousel-control-next-icon, .timeline-item::before, .hero-card .card-img, .project-visual, .project-visual img, .about-stats .stat, .contact-form, .pdf-frame {
   corner-shape: squircle; corner-smoothing: 60%; -webkit-corner-shape: squircle;
 }
-.hero-card, .project-card, .skill-card, .stat, .contact-form, .pdf-frame, .badge-pdf, .btn-primary-custom, .btn-ghost, .btn-project, .carousel-indicators [data-bs-target] { corner-shape:squircle; corner-smoothing:60%; -webkit-corner-shape:squircle; }
+.hero-card, .project-card, .skill-card, .stat, .contact-form, .pdf-frame, .badge-pdf, .btn-primary-custom, .btn-ghost, .btn-project, .carousel-indicators label { corner-shape:squircle; corner-smoothing:60%; -webkit-corner-shape:squircle; }
 /* No-wrap bottoni/icone + navbar — solo scaling graduale del font, nessun a capo */
 .btn, .btn-primary-custom, .btn-ghost, .btn-project, .btn-submit, .btn-accent, .navbar-sticky .nav-link.btn-accent {
   display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:.5rem !important;
@@ -222,7 +222,6 @@ img{max-width:100%}
   flex:0 0 auto !important;flex-shrink:0 !important;white-space:nowrap !important;
 }
 .navbar-sticky .container { flex-wrap:wrap !important; }
-.navbar-collapse { flex-basis:100% !important;flex-grow:1 !important; }
 @media(max-width:767.98px){
   .navbar-sticky .nav-link.btn-accent { margin-left:0 !important;margin-top:.5rem !important; }
 }
@@ -260,4 +259,38 @@ img{max-width:100%}
   corner-shape:round !important;
   corner-smoothing:0% !important;
   -webkit-corner-shape:round !important;
+}
+/* Menu mobile CSS-only (checkbox hack) — nessun JavaScript */
+.nav-toggle{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.navbar-toggler{cursor:pointer;display:inline-block}
+@media(max-width:767.98px){
+  .navbar-sticky .navbar-collapse{display:none !important}
+  .nav-toggle:checked ~ .navbar-collapse{display:block !important}
+}
+/* Slider portfolio CSS-only (radio) — nessun JavaScript */
+.css-carousel{position:relative}
+.css-carousel > input[type="radio"]{position:absolute;opacity:0;pointer-events:none}
+.css-carousel .carousel-item{display:none}
+#slide-1:checked ~ .carousel-inner .slide-1,
+#slide-2:checked ~ .carousel-inner .slide-2,
+#slide-3:checked ~ .carousel-inner .slide-3{display:block}
+.css-carousel .carousel-control-prev,
+.css-carousel .carousel-control-next{display:none !important;cursor:pointer}
+#slide-1:checked ~ .ctrl-1,
+#slide-2:checked ~ .ctrl-2,
+#slide-3:checked ~ .ctrl-3{display:flex !important}
+#slide-1:checked ~ .carousel-indicators label[for="slide-1"],
+#slide-2:checked ~ .carousel-indicators label[for="slide-2"],
+#slide-3:checked ~ .carousel-indicators label[for="slide-3"]{background-color:#10B981;opacity:1;width:36px;box-shadow:0 2px 10px rgba(16,185,129,0.5)}
+@media(min-width:768px) and (max-width:991.98px){
+  .navbar-sticky .nav-link{padding:.5rem .65rem !important}
+  .navbar-nav{gap:.5rem !important}
+  .navbar-sticky .nav-link.btn-accent{padding:.5rem 1rem !important;margin-left:.25rem !important}
+}
+/* Fascia stretta con menu esteso (576-768px): spaziature extra-ridotte per restare in una riga */
+@media(min-width:576px) and (max-width:767.98px){
+  .navbar-brand{font-size:1.05rem !important}
+  .navbar-sticky .nav-link{padding:.5rem .5rem !important;font-size:.78rem !important}
+  .navbar-nav{gap:.35rem !important}
+  .navbar-sticky .nav-link.btn-accent{padding:.45rem .8rem !important;margin-left:0 !important}
 }
