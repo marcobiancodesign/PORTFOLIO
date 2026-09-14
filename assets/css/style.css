@@ -158,12 +158,14 @@ img{max-width:100%}
 .info-item .icon{width:44px;height:44px;background:#0A0A0A;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .info-item div strong{display:block;font-size:.9rem}
 .info-item div span,.info-item div a{font-size:.9rem;color:#5A5652}
-.contact-form{background:#fff;border:1px solid #E8E6E1;border-radius:32px;padding:2rem}
+.contact-form{background:#fff;border:1px solid #E8E6E1;border-radius:32px;padding:2rem;display:flex;flex-direction:column;height:100%}
+.contact-form .form-submit{margin-top:auto;padding-top:1.5rem}
 .contact-form label{font-weight:600;font-size:.85rem;margin-bottom:.3rem}
 .contact-form .form-control,.contact-form .form-select{border:1.5px solid #E8E6E1;border-radius:20px;padding:.75rem 1rem;font-size:.92rem}
 .contact-form .form-control:focus,.contact-form .form-select:focus{border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,0.15)}
 .btn-submit{background:#10B981;border:none;color:#fff;font-weight:700;padding:.9rem;border-radius:999px;width:100%}
-.btn-submit:hover{background:#059669}
+.btn-submit:hover{background:#059669;color:#fff}
+.btn-submit:active,.btn-submit:focus{color:#fff}
 .form-note{font-size:.78rem;color:#9A9590;text-align:center;margin-top:1rem}
 .pdf-viewer{display:flex;flex-direction:column;min-height:calc(100dvh - 72px)}
 .pdf-toolbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1.2rem;flex-shrink:0}
@@ -208,7 +210,6 @@ img{max-width:100%}
   corner-shape: squircle; corner-smoothing: 60%; -webkit-corner-shape: squircle;
 }
 .hero-card, .project-card, .skill-card, .stat, .contact-form, .pdf-frame, .badge-pdf, .btn-primary-custom, .btn-ghost, .btn-project, .carousel-indicators label { corner-shape:squircle; corner-smoothing:60%; -webkit-corner-shape:squircle; }
-/* No-wrap bottoni/icone + navbar — solo scaling graduale del font, nessun a capo */
 .btn, .btn-primary-custom, .btn-ghost, .btn-project, .btn-submit, .btn-accent, .navbar-sticky .nav-link.btn-accent {
   display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:.5rem !important;
   white-space:nowrap !important;word-break:keep-all !important;overflow-wrap:normal !important;
@@ -248,7 +249,6 @@ img{max-width:100%}
   .btn, .btn-primary-custom, .btn-ghost, .btn-project, .btn-submit, .btn-accent, .navbar-sticky .nav-link.btn-accent { font-size:.66rem !important; }
   .navbar-brand { font-size:1.05rem !important; }
 }
-/* Fix pillole: lo squircle appiattiva le estremità — si forzano angoli tondi sui bottoni */
 .btn, .btn-primary-custom, .btn-ghost, .btn-project, .btn-submit, .btn-accent, .navbar-sticky .nav-link.btn-accent, .badge-pdf {
   border-radius:999px !important;
   corner-shape:round !important;
@@ -260,14 +260,12 @@ img{max-width:100%}
   corner-smoothing:0% !important;
   -webkit-corner-shape:round !important;
 }
-/* Menu mobile CSS-only (checkbox hack) — nessun JavaScript */
 .nav-toggle{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
 .navbar-toggler{cursor:pointer;display:inline-block}
 @media(max-width:767.98px){
   .navbar-sticky .navbar-collapse{display:none !important}
   .nav-toggle:checked ~ .navbar-collapse{display:block !important}
 }
-/* Slider portfolio CSS-only (radio) — nessun JavaScript */
 .css-carousel{position:relative}
 .css-carousel > input[type="radio"]{position:absolute;opacity:0;pointer-events:none}
 .css-carousel .carousel-item{display:none}
@@ -287,7 +285,6 @@ img{max-width:100%}
   .navbar-nav{gap:.5rem !important}
   .navbar-sticky .nav-link.btn-accent{padding:.5rem 1rem !important;margin-left:.25rem !important}
 }
-/* Fascia stretta con menu esteso (576-768px): spaziature extra-ridotte per restare in una riga */
 @media(min-width:576px) and (max-width:767.98px){
   .navbar-brand{font-size:1.05rem !important}
   .navbar-sticky .nav-link{padding:.5rem .5rem !important;font-size:.78rem !important}
