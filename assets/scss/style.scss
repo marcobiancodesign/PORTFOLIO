@@ -253,12 +253,14 @@ img { max-width: 100%; }
   .contact-info .alert { margin-top: auto; }
   .contact-form {
     background: $bg-card; border: 1px solid $gray-200; border-radius: $radius-md; padding: 2rem;
+    display: flex; flex-direction: column; height: 100%;
+    .form-submit { margin-top: auto; padding-top: 1.5rem; }
     label { font-weight: 600; font-size: 0.85rem; margin-bottom: 0.3rem; }
     .form-control, .form-select {
       border: 1.5px solid $gray-200; border-radius: $radius-sm; padding: 0.75rem 1rem; font-size: 0.92rem;
       &:focus { border-color: $accent; box-shadow: 0 0 0 3px rgba(16,185,129,0.15); }
     }
-    .btn-submit { background: $accent; border: none; color: #fff; font-weight: 700; padding: 0.9rem; border-radius: 999px; width: 100%; &:hover { background: $accent-hover; } }
+    .btn-submit { background: $accent; border: none; color: #fff; font-weight: 700; padding: 0.9rem; border-radius: 999px; width: 100%; &:hover { background: $accent-hover; color: #fff; } &:active, &:focus { color: #fff; } }
     .form-note { font-size: 0.78rem; color: $gray-400; text-align: center; margin-top: 1rem; }
   }
 }
@@ -283,7 +285,6 @@ img { max-width: 100%; }
 .skill-icon, .form-control, .form-select, .alert, .info-item .icon, .cv-avatar, .btn-fullscreen, .carousel-control-prev-icon, .carousel-control-next-icon, .timeline-item::before, .hero-card .card-img, .project-visual, .project-visual img, .about-stats .stat, .contact-form, .pdf-frame {
   corner-shape: squircle; corner-smoothing: 60%; -webkit-corner-shape: squircle;
 }
-/* No-wrap bottoni/icone + navbar — solo scaling graduale del font, nessun a capo */
 .btn, .btn-primary-custom, .btn-ghost, .btn-project, .btn-submit, .btn-accent, .navbar-sticky .nav-link.btn-accent {
   display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 0.5rem !important;
   white-space: nowrap !important; word-break: keep-all !important; overflow-wrap: normal !important;
@@ -323,7 +324,6 @@ img { max-width: 100%; }
   .btn, .btn-primary-custom, .btn-ghost, .btn-project, .btn-submit, .btn-accent, .navbar-sticky .nav-link.btn-accent { font-size: 0.66rem !important; }
   .navbar-brand { font-size: 1.05rem !important; }
 }
-/* Fix pillole: lo squircle appiattiva le estremità — si forzano angoli tondi sui bottoni */
 .btn, .btn-primary-custom, .btn-ghost, .btn-project, .btn-submit, .btn-accent, .navbar-sticky .nav-link.btn-accent, .badge-pdf {
   border-radius: 999px !important;
   corner-shape: round !important;
@@ -335,14 +335,12 @@ img { max-width: 100%; }
   corner-smoothing: 0% !important;
   -webkit-corner-shape: round !important;
 }
-/* Menu mobile CSS-only (checkbox hack) — nessun JavaScript */
 .nav-toggle { position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; }
 .navbar-toggler { cursor: pointer; display: inline-block; }
 @media (max-width: 767.98px) {
   .navbar-sticky .navbar-collapse { display: none !important; }
   .nav-toggle:checked ~ .navbar-collapse { display: block !important; }
 }
-/* Slider portfolio CSS-only (radio) — nessun JavaScript */
 .css-carousel { position: relative; }
 .css-carousel > input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
 .css-carousel .carousel-item { display: none; }
@@ -362,7 +360,6 @@ img { max-width: 100%; }
   .navbar-nav { gap: 0.5rem !important; }
   .navbar-sticky .nav-link.btn-accent { padding: 0.5rem 1rem !important; margin-left: 0.25rem !important; }
 }
-/* Fascia stretta con menu esteso (576-768px): spaziature extra-ridotte per restare in una riga */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .navbar-brand { font-size: 1.05rem !important; }
   .navbar-sticky .nav-link { padding: 0.5rem 0.5rem !important; font-size: 0.78rem !important; }
